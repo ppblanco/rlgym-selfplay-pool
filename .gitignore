@@ -1,0 +1,56 @@
+# ---------------------------------------------------------------------------
+# Copia publica: aqui NO entra ningun peso de modelo ni material del juego.
+# ---------------------------------------------------------------------------
+
+# Pesos y checkpoints: nunca
+*.pt
+*.ckpt
+*.onnx
+checkpoints/
+runs/
+artifacts/
+teammates/*/
+
+# Material del juego: no redistribuible
+collision_meshes/
+
+# Entornos y cachés (recreables desde requirements/lock-2026-09-07.txt)
+venv/
+venv-val/
+/.venv/
+/env/
+/ENV/
+cache/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Logs y volcados
+*.log
+*.stackdump
+outputs/
+logs/
+
+# Secretos
+.env
+.env.local
+*.key
+secrets.yaml
+
+# Entorno de escritorio
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Notebooks
+.ipynb_checkpoints/
+
+# IMPORTANTE: results/ NO se ignora. Son texto (JSONL, JSON) y sostienen las
+# conclusiones. No contienen pesos ni rutas personales.

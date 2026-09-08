@@ -1,0 +1,132 @@
+{
+  "fase": "Comprobacion final de recompensa. Ultima prueba diagnostica autorizada.",
+  "escrito_antes_de_entrenar": true,
+  "pregunta": "Reducir o eliminar el shaping denso evita que entrenar mas deteriore la capacidad de juego frente al punto de partida?",
+  "no_es_la_pregunta": "Cual recompensa da el porcentaje mas alto.",
+
+  "estado_previo_intacto": {
+    "H1": "CERRADO, INCONCLUYENTE, protocolo 8ae06382c83a85cae0bd5d68dc0f2d40b763e3dce9d5d81159393b45306f580e",
+    "H2": "NO-GO. No se reabre en esta fase.",
+    "diagnostico_anterior": "D_A/D_B/D_C, ninguna PROMETEDORA. Intacto."
+  },
+
+  "c0": {
+    "ruta": "%LOCALAPPDATA%\\rlgym-selfplay-pool\\runs\\C0_v2_stage1",
+    "cumulative_timesteps": 32000,
+    "hashes": {
+      "BOOK_KEEPING_VARS.json": "56d05fb2a65050390318b495e4c838b32f3efe837da0667da67f849636ec7ee8",
+      "PPO_POLICY.pt": "2144e0e0e1f1df75e4a1c1b9a2270bdc56a9e80a8a92277b2a45e4abdb028030",
+      "PPO_POLICY_OPTIMIZER.pt": "3d232a21a483dd8dc7853de45fda693a19f283ce51de2778952fb4314f7d84ac",
+      "PPO_VALUE_NET.pt": "e97ffc3a3fac7be36ae2a9cc3a29c34c341cc84769dfd80af15312c25ef30a5b",
+      "PPO_VALUE_NET_OPTIMIZER.pt": "62ea1b0d0070a2fee18a085158947aebbdd62359c1f901825a22d6038b7cf22e"
+    }
+  },
+
+  "identico_en_las_dos": {
+    "arquitectura_politica": [512, 512, 512],
+    "arquitectura_critico": [512, 512, 512],
+    "semilla_entrenamiento": 20260951,
+    "nota_semilla": "La misma que uso el diagnostico anterior (D_A/D_B/D_C), para que R1 y R2 sean directamente comparables con aquellos resultados.",
+    "entorno": {
+      "tick_skip": 8, "team_size": 1, "spawn_opponents": true,
+      "state_setter": "DefaultState", "obs": "DefaultObs (89)",
+      "acciones": "LookupAction (90 discretas)",
+      "terminales": ["GoalScoredCondition", "TimeoutCondition(300 pasos)"]
+    },
+    "ejecucion": {"n_proc": 2, "hilos_torch_por_trabajador": 1, "lote_ppo": 8000, "dispositivo": "cpu"},
+    "ppo": {
+      "clip_range": 0.2, "ent_coef": 0.01, "epochs": 1, "gae_gamma": 0.99,
+      "gae_lambda": 0.95, "minibatch": 8000, "standardize_obs": false,
+      "standardize_returns": true
+    },
+    "presupuesto": 500000,
+    "rival_de_entrenamiento": "C0 congelado y fijo durante toda la corrida",
+    "hitos": [100000, 250000, 500000],
+    "un_proceso_por_configuracion": true
+  },
+
+  "configuraciones": {
+    "R1": {
+      "id": "R1",
+      "etiqueta": "R1. Shaping reducido: stage_1_basics con los densos divididos por 10",
+      "recompensa": "configs/experimento/reward-final-check/r1_shaping_reducido.yaml",
+      "zero_sum": true,
+      "derivacion": "Copia de stage_1_basics heredado. velocity_player_to_ball 0.10->0.010, face_ball 0.05->0.005, velocity_ball_to_goal 0.30->0.030. event intacto (8.0, goal 1.0, concede -1.0, shot 0.1, demo 0.1). zero_sum/team_spirit/opp_scale sin tocar.",
+      "verificado": "comparado componente a componente contra el YAML heredado"
+    },
+    "R2": {
+      "id": "R2",
+      "etiqueta": "R2. Solo evento: unicamente el componente event de stage_1_basics",
+      "recompensa": "configs/experimento/reward-final-check/r2_solo_evento.yaml",
+      "zero_sum": true,
+      "derivacion": "Se eliminan los tres terminos densos. event conserva peso y kwargs heredados sin ningun cambio. zero_sum/team_spirit/opp_scale sin tocar.",
+      "verificado": "comparado componente a componente contra el YAML heredado"
+    }
+  },
+  "no_habra_tercera_configuracion": true,
+
+  "evaluacion": {
+    "rival": "C0",
+    "herramienta": "scripts/h2/duel.py",
+    "checkpoints_evaluados": [100000, 250000, 500000],
+    "partidas_por_checkpoint": 200,
+    "semillas_partida": {"desde": 13000, "hasta": 13199},
+    "semillas_nuevas": "13000-13199 no se han usado antes en ninguna fase",
+    "semillas_ya_consumidas_prohibidas": {
+      "h1_final": "5000-5039",
+      "h2_calibracion": "9000-9039",
+      "h2_final_previsto": "7000-7059",
+      "diagnostico_anterior": "11000-11199"
+    },
+    "lados": "alternados por indice: 100 azul y 100 naranja",
+    "modo": "estocastico",
+    "tope_pasos": 3000,
+    "total_partidas": 1200,
+    "mismas_semillas_para_R1_y_R2": true
+  },
+
+  "variable_principal": "tasa de victoria frente a C0 sobre partidas completas",
+  "metricas_solo_diagnosticas": [
+    "vf_loss", "KL", "entropia", "deriva",
+    "NO se usan como prueba de calidad del bot; solo estabilidad y direccion del aprendizaje"
+  ],
+
+  "criterio_congelado": {
+    "PROMETEDORA_exige_las_tres": {
+      "A_nivel": [
+        "tasa a 500k > 50 % en estimacion puntual",
+        "IC95 de Wilson de esa tasa EXCLUYE el 50 % por arriba (limite inferior > 0.50)"
+      ],
+      "B_tendencia": [
+        "no hay deterioro sistematico entre 100k, 250k y 500k"
+      ],
+      "C_estabilidad": [
+        "parametros finitos", "sin NaN ni Inf en vf_loss",
+        "sin colapso de entropia: entropia final > 1.0",
+        "el entrenamiento termina sin error y alcanza el presupuesto"
+      ]
+    },
+    "definicion_cuantitativa_de_deterioro_sistematico": {
+      "regla": "hay deterioro sistematico si tasa(500k) < tasa(100k) - 10 pp O BIEN tasa(500k) < tasa(250k) - 10 pp",
+      "justificacion": "Con 200 partidas y tasas cercanas al 50 %, el error tipico de una tasa es 3.5 pp y el de la diferencia entre dos checkpoints es 5.0 pp. 10 pp son 2 errores tipicos de la diferencia.",
+      "no_se_exige_monotonicidad": "una bajada intermedia menor de 10 pp se considera fluctuacion",
+      "identica_a_la_del_diagnostico_anterior": true
+    },
+    "INCONCLUYENTE": "la estimacion puntual a 500k supera el 50 % pero su IC95 incluye el 50 %, o la estabilidad no puede juzgarse",
+    "NO_PROMETEDORA": "la estimacion puntual a 500k no supera el 50 %, o hay deterioro sistematico, o hay colapso o fallo de entrenamiento"
+  },
+
+  "interpretacion_fijada_de_antemano": {
+    "solo_R1": "compatible con exceso de shaping; NO con que todo shaping sea malo",
+    "solo_R2": "compatible con que incluso el shaping reducido interfiera",
+    "ambas": "la siguiente decision comparara robustez y aprendizaje, sin elegir automaticamente la de mayor tasa",
+    "ninguna": "se considera CERRADA la linea experimental de recompensas. No habra R3, ni H3, ni vuelta a H2."
+  },
+
+  "limites_declarados": {
+    "una_sola_semilla_por_configuracion": "no separa el efecto de la recompensa del de la semilla",
+    "presupuesto_pequeno": "500.000 muestras: cribado, no medicion fina",
+    "no_se_ampliara_el_presupuesto": true,
+    "no_se_haran_mas_pruebas_sin_nueva_autorizacion": true
+  }
+}

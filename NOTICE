@@ -1,0 +1,87 @@
+rlgym-selfplay-pool
+===================
+
+Evolución personal construida sobre moanv2/rlgym.
+
+OBRA ORIGINAL
+-------------
+    Repositorio : https://github.com/moanv2/rlgym
+    Licencia    : MIT (ver LICENSE, que se conserva sin modificar)
+    Copyright   : (c) 2026 Diego
+    Autor       : Diego Alfaro Gomez
+    Contexto    : Final Project for Reinforcement Learning,
+                  IE School of Science and Technology
+    Contribuidores en GitHub: moanv2, MartinSSchneider, ma731
+
+Todo el código bajo src/rlbot/, configs/, tests/, docs/ y scripts/ que no
+aparezca listado abajo como aportación nueva es obra de los autores originales.
+El aviso de copyright y la licencia MIT se conservan íntegros. Este proyecto NO
+reclama autoría sobre esa base ni sustituye a sus autores.
+
+Los checkpoints de las ramas diego, martin, nachi y marco son obra de sus
+respectivos autores. Se usan como punto de partida y como rivales de
+evaluación, con atribución, y no se presentan como modelos propios.
+Su procedencia exacta (rama, SHA, ruta y hash) está en UPSTREAM.md.
+
+
+APORTACIONES NUEVAS DE ESTE PROYECTO
+------------------------------------
+Copyright (c) 2026 Pedro Pérez Blanco, sobre la base MIT anterior.
+
+Estado a 2026-09-07 (fase 0 y ciclo real de entrenamiento completados):
+
+    scripts/preflight.py            NUEVO   diagnóstico de viabilidad:
+                                            entorno, stack de simulación,
+                                            compatibilidad de artefactos y
+                                            benchmarks opt-in
+    scripts/checks_sim.py           NUEVO   arena de RocketSim, entorno 1v1 y
+                                            las tres mediciones separadas
+                                            (simulación / inferencia / PPO)
+    requirements/lock-2026-09-07.txt NUEVO  entorno reproducible
+    scripts/check_adapter.py        NUEVO   comprobaciones del adaptador
+                                            aprendiz / rival congelado
+    scripts/train_smoke.py          NUEVO   entrenamiento real minimo con
+                                            experiencia del simulador
+    scripts/eval_dev.py             NUEVO   evaluacion de desarrollo con
+                                            registro JSONL por partida
+    src/rlbot/env/rocketsim_init.py NUEVO   init de RocketSim, uno por proceso
+    src/rlbot/env/frozen_opponent.py NUEVO  entorno 1v1 con rival congelado
+                                            (version minima, SIN pool)
+    src/rlbot/env/opponent_pool.py  NUEVO   pool de rivales congelados:
+                                            instantaneas, manifiesto, hashes
+                                            y muestreo uniforme reproducible
+    scripts/warmup_critic.py        NUEVO   medicion del calentamiento del
+                                            critico antes de bifurcar A y B
+    scripts/test_pool.py            NUEVO   pruebas de mecanica del pool
+    scripts/train_ab_smoke.py       NUEVO   smoke test de los dos brazos
+    scripts/compare_rewards.py      NUEVO   comparacion DefaultReward vs
+                                            stage_1_basics como senal
+    scripts/freeze_protocol.py      NUEVO   congela el protocolo y calcula
+                                            su SHA256
+    configs/experimento/protocolo.json NUEVO  protocolo congelado
+    scripts/run_experiment.py       NUEVO   ejecuta las seis corridas
+    scripts/integrity_table.py      NUEVO   tabla ciega de integridad
+    scripts/eval_final.py           NUEVO   evaluacion final, una sola vez
+    scripts/analyze_h1.py           NUEVO   criterio congelado de H1
+    docs/experiments/resultados-finales.md NUEVO  resultados del experimento
+    docs/experiments/incidencias.md NUEVO   incidencias de ejecucion
+    MANIFIESTO_HASHES.txt           NUEVO   hashes de nuestras aportaciones
+    UPSTREAM.md                     NUEVO   procedencia y versiones exactas
+    NOTICE                          NUEVO   este archivo
+    ESTADO_PROYECTO.md              NUEVO   estado real y verificado
+    docs/experiments/plan.md        NUEVO   hipótesis, protocolo y fases
+
+Archivos heredados modificados: NINGUNO. Comprobado con git status: todas
+nuestras aportaciones son archivos nuevos. Los hashes estan en
+MANIFIESTO_HASHES.txt, porque el SHA de upstream identifica la base pero NO
+identifica nuestras modificaciones.
+
+Pendiente de implementar (NO existe aún, no debe darse por hecho):
+
+    scripts/run_experiment.py       PENDIENTE  orquestacion de 3 semillas x 2 brazos
+    intervalos de confianza         PENDIENTE  bootstrap sobre las partidas
+
+    El pool historico YA existe y esta probado (17/17 comprobaciones). Lo que
+    falta es el experimento completo: presupuesto, semillas y evaluacion final.
+Cada archivo nuevo lleva una cabecera que lo identifica como aportación de este
+proyecto y no de la base.

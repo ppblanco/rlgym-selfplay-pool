@@ -1,0 +1,8 @@
+# Los protocolos congelados se verifican por SHA256: sus bytes no pueden
+# cambiar segun el sistema operativo. Se normaliza todo a LF.
+* text=auto eol=lf
+
+# Sin conversion alguna en los artefactos hasheados.
+configs/experimento/**/protocolo.json -text
+configs/experimento/**/*.sha256 -text
+results/**/*.jsonl -text

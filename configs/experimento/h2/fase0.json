@@ -1,0 +1,129 @@
+{
+  "fase": "H2 fase 0: linaje neutral, piloto y calibracion de dificultad",
+  "nota": "Esta configuracion NO es el protocolo de H2. El protocolo definitivo solo se escribe y congela si la puerta GO/NO-GO se supera.",
+  "no_forma_parte_del_resultado_experimental": true,
+  "h1_intacto": "H1 queda cerrado. Nada de esta fase escribe en experimento/ ni en configs/experimento/protocolo.json",
+
+  "c0": {
+    "ruta": "%LOCALAPPDATA%\\rlgym-selfplay-pool\\runs\\C0_v2_stage1",
+    "cumulative_timesteps": 32000,
+    "hashes": {
+      "BOOK_KEEPING_VARS.json": "56d05fb2a65050390318b495e4c838b32f3efe837da0667da67f849636ec7ee8",
+      "PPO_POLICY.pt": "2144e0e0e1f1df75e4a1c1b9a2270bdc56a9e80a8a92277b2a45e4abdb028030",
+      "PPO_POLICY_OPTIMIZER.pt": "3d232a21a483dd8dc7853de45fda693a19f283ce51de2778952fb4314f7d84ac",
+      "PPO_VALUE_NET.pt": "e97ffc3a3fac7be36ae2a9cc3a29c34c341cc84769dfd80af15312c25ef30a5b",
+      "PPO_VALUE_NET_OPTIMIZER.pt": "62ea1b0d0070a2fee18a085158947aebbdd62359c1f901825a22d6038b7cf22e"
+    }
+  },
+
+  "recompensa": {
+    "archivo": "configs/reward_weights/stage_1_basics.yaml",
+    "heredada": true,
+    "sha256": "d508a6e4296ef37ffc9924ff847683b60e6944e94a462632c2238add5f05972f",
+    "envoltura": "ZeroSumReward(team_spirit=0.0, opp_scale=1.0)",
+    "identica_a_h1": true
+  },
+
+  "modelo": {
+    "obs": "DefaultObs (89)",
+    "acciones": "LookupAction (90 discretas)",
+    "arquitectura_politica": [512, 512, 512],
+    "arquitectura_critico": [512, 512, 512]
+  },
+
+  "entorno": {
+    "tick_skip": 8,
+    "team_size": 1,
+    "spawn_opponents": true,
+    "state_setter": "DefaultState",
+    "terminales": ["GoalScoredCondition", "TimeoutCondition(300 pasos)"]
+  },
+
+  "ppo": {
+    "clip_range": 0.2,
+    "ent_coef": 0.01,
+    "epochs": 1,
+    "gae_gamma": 0.99,
+    "gae_lambda": 0.95,
+    "minibatch": 8000,
+    "standardize_obs": false,
+    "standardize_returns": true
+  },
+
+  "ejecucion": {
+    "dispositivo": "cpu",
+    "n_proc": 2,
+    "hilos_torch_por_trabajador": 1,
+    "lote_ppo": 8000,
+    "wandb": "desactivado",
+    "una_corrida_por_proceso": true
+  },
+
+  "linajes": {
+    "sparring": {
+      "id": "S",
+      "proposito": "linaje NEUTRAL para construir escalones de dificultad. No es brazo A ni brazo B.",
+      "esquema": "fijo",
+      "rival": "C0 congelado y fijo durante toda la corrida",
+      "usa_pool_como_rival": false,
+      "semilla": 20260931,
+      "presupuesto": 4000000,
+      "K_archivo": 100000,
+      "retencion_prueba": 16,
+      "nota_retencion": "El pool de retencion 16 se alimenta con las mismas instantaneas SOLO para comprobar que la expulsion se activa de verdad. Nunca se usa como rival: el rival es C0 fijo.",
+      "hitos": [500000, 1000000, 2000000, 4000000]
+    },
+    "piloto": {
+      "id": "P",
+      "proposito": "sonda unica de dificultad y de deriva. Esquema de CONTROL para no poder elegir rivales mirando al brazo B.",
+      "esquema": "pool",
+      "retencion": 1,
+      "protege_c0": false,
+      "semilla": 20260932,
+      "presupuesto": 2500000,
+      "K_archivo": 100000,
+      "hitos": [2500000]
+    }
+  },
+
+  "calibracion": {
+    "sonda": "P",
+    "prohibido": "No existe piloto del brazo B. Es imposible elegir rivales segun a quien favorezcan.",
+    "escalones_candidatos": ["S@500000", "S@1000000", "S@2000000", "S@4000000"],
+    "referencias": ["C0", "diego_1.18B_512"],
+    "partidas_por_rival": 40,
+    "semillas_partida": {"desde": 9000, "hasta": 9039},
+    "modo": "estocastico",
+    "lados": "alternados por indice",
+    "tope_pasos": 3000,
+    "zona_informativa": {"min": 0.35, "max": 0.65},
+    "descarte": {"por_debajo": 0.20, "por_encima": 0.80},
+    "minimo_escalones_en_zona": 3
+  },
+
+  "puerta_go_no_go": {
+    "G1_sin_suelo_ni_techo": "al menos 3 escalones con tasa de P entre 35% y 65%",
+    "G2_deriva": "deriva del piloto >= 3x la de H1 (H1 = 0.0155; umbral 0.0465)",
+    "G3_diversidad": "diversidad del pool >= 2x la de H1 (H1 mediana entre pares = 0.0074; umbral 0.0148) y retencion 16 activada de verdad",
+    "G4_infraestructura": "un proceso por corrida, sin bloqueos, recuperacion y reanudacion verificadas",
+    "si_falla_alguna": "NO-GO. No se ejecutan las 10 corridas."
+  },
+
+  "semillas_h2_propuestas": {
+    "entrenamiento": [20260941, 20260942, 20260943, 20260944, 20260945],
+    "emparejadas_A_B": true,
+    "distintas_de_h1": [20260907, 20260908, 20260909],
+    "distintas_de_sparring_y_piloto": [20260931, 20260932],
+    "semillas_partida_calibracion": "9000-9039",
+    "semillas_partida_final": "7000-7059",
+    "semillas_partida_h1_no_reutilizadas": "5000-5039"
+  },
+
+  "referencias_h1_para_las_puertas": {
+    "deriva_final_media": 0.0155,
+    "diversidad_pool_mediana_pares": 0.0074,
+    "diversidad_pool_extremos": 0.0151,
+    "tasa_victoria_ambos_brazos": "~5%",
+    "fuente": "docs/experiments/resultados-finales.md y diagnostico sobre los checkpoints de H1"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "etiqueta": "R1 shaping reducido",
+  "a": "R1@000250000",
+  "b": "C0",
+  "hash_a": "ae52cd03b00cecaf89ba110655394c51bb6c91b9f2633391474b8d76f75a8a30",
+  "hash_b": "2144e0e0e1f1df75e4a1c1b9a2270bdc56a9e80a8a92277b2a45e4abdb028030",
+  "partidas": 200,
+  "victorias": 9,
+  "derrotas": 182,
+  "empates": 9,
+  "incompletas": 0,
+  "completas": 200,
+  "tasa": 0.045,
+  "ic95_wilson": [
+    0.023852542998028543,
+    0.08329670401318119
+  ],
+  "semillas": [
+    13000,
+    13199
+  ],
+  "lados": "alternados por indice"
+}

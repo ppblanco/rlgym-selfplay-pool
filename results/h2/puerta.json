@@ -1,0 +1,113 @@
+{
+  "criterios": {
+    "G1_zona_informativa": {
+      "cumple": true,
+      "necesarios": 3,
+      "en_zona": 4,
+      "zona": [
+        0.35,
+        0.65
+      ],
+      "escalones_seleccionados": [
+        "S@500000",
+        "S@1000000",
+        "S@2000000",
+        "S@4000000"
+      ]
+    },
+    "G2_deriva": {
+      "cumple": false,
+      "deriva_piloto": 0.031015,
+      "deriva_h1": 0.0155,
+      "umbral": 0.0465,
+      "veces_h1": 2.0,
+      "muestras_piloto": 2500000
+    },
+    "G3_diversidad": {
+      "cumple": false,
+      "mediana_pares": 0.013458,
+      "umbral": 0.0148,
+      "veces_h1": 1.82,
+      "extremos_ventana": 0.024287,
+      "extremos_h1": 0.0151,
+      "instantaneas_en_ventana": 16,
+      "ventana_muestras": [
+        900000,
+        2500000
+      ],
+      "retencion_activada": true,
+      "instantaneas_creadas": 41,
+      "instantaneas_retenidas": 16,
+      "expulsadas": 25
+    },
+    "G4_infraestructura": {
+      "cumple": true,
+      "todas_completas": true,
+      "sin_huerfanos": true,
+      "sin_cortes_por_estancamiento": true,
+      "checkpoint_final_presente": true,
+      "c0_intacto": true,
+      "un_proceso_por_corrida": true
+    }
+  },
+  "detalle": {
+    "tasas_del_piloto": [
+      {
+        "rival": "S@500000",
+        "clase": "escalon",
+        "partidas": 40,
+        "completas": 40,
+        "victorias": 22,
+        "tasa": 0.55,
+        "en_zona": true
+      },
+      {
+        "rival": "S@1000000",
+        "clase": "escalon",
+        "partidas": 40,
+        "completas": 40,
+        "victorias": 22,
+        "tasa": 0.55,
+        "en_zona": true
+      },
+      {
+        "rival": "S@2000000",
+        "clase": "escalon",
+        "partidas": 40,
+        "completas": 40,
+        "victorias": 22,
+        "tasa": 0.55,
+        "en_zona": true
+      },
+      {
+        "rival": "S@4000000",
+        "clase": "escalon",
+        "partidas": 40,
+        "completas": 40,
+        "victorias": 22,
+        "tasa": 0.55,
+        "en_zona": true
+      },
+      {
+        "rival": "C0",
+        "clase": "referencia",
+        "partidas": 40,
+        "completas": 40,
+        "victorias": 6,
+        "tasa": 0.15,
+        "en_zona": false
+      },
+      {
+        "rival": "diego_1.18B_512",
+        "clase": "referencia",
+        "partidas": 40,
+        "completas": 40,
+        "victorias": 0,
+        "tasa": 0.0,
+        "en_zona": false
+      }
+    ]
+  },
+  "veredicto": "NO-GO",
+  "nota": "Ninguna de estas medidas es una metrica de calidad de juego. G2 y G3 solo comprueban que la intervencion ya no es casi nula."
+}

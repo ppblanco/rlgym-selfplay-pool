@@ -1,0 +1,23 @@
+{
+  "etiqueta": "D_B stage_2_offense zs=si",
+  "a": "D_B@000250000",
+  "b": "C0",
+  "hash_a": "9df3f7b8cf4c5ce9b6ec60de274975eeb0f9d075cd0906eea0715573a99093e6",
+  "hash_b": "2144e0e0e1f1df75e4a1c1b9a2270bdc56a9e80a8a92277b2a45e4abdb028030",
+  "partidas": 200,
+  "victorias": 75,
+  "derrotas": 111,
+  "empates": 14,
+  "incompletas": 0,
+  "completas": 200,
+  "tasa": 0.375,
+  "ic95_wilson": [
+    0.310854368569852,
+    0.4438569630266342
+  ],
+  "semillas": [
+    11000,
+    11199
+  ],
+  "lados": "alternados por indice"
+}

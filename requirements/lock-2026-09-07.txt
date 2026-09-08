@@ -1,0 +1,47 @@
+# Entorno reproducible de rlgym-selfplay-pool — generado el 2026-09-07
+# Entorno: %LOCALAPPDATA%\rlgym-selfplay-pool\venv-val  (Python 3.11.16)
+#
+# torch 2.13.0: minima version CPU que resuelve TODOS los avisos vigentes.
+#   CVE-2025-32434 (critico, weights_only) -> corregido en 2.6.0
+#   CVE-2026-24747 (alto, checkpoints)     -> corregido en 2.10.0
+#   GHSA-rrmf-rvhw-rf47 (bajo)             -> corregido en 2.13.0
+# Instalar torch ANTES que el resto, desde el indice CPU:
+#   pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+#
+# rlgym-tools NO se instala: su main es la API v2, incompatible con rlgym_sim.
+
+annotated-types==0.8.0
+certifi==2026.7.22
+charset-normalizer==3.5.1
+click==8.5.0
+cloudpickle==3.1.2
+cmeel==0.61.0
+filelock==3.32.3
+fsspec==2026.7.0
+gym==0.26.2
+gym-notices==0.0.8
+idna==3.19
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+mpmath==1.3.0
+networkx==3.6.1
+numpy==1.26.4
+opentelemetry-api==1.44.0
+packaging==26.3
+platformdirs==4.11.7
+protobuf==7.36.1
+pydantic==2.13.5
+pydantic_core==2.46.5
+PyYAML==6.0.2
+requests==2.34.2
+rlgym-ppo @ git+https://github.com/AechPro/rlgym-ppo@4ffd2e924198bf4b2d59f4bf280b29919d7c07ea
+rlgym-sim @ git+https://github.com/AechPro/rocket-league-gym-sim@a1240530239d6b7671147b4f97e9b5e130d0acce
+rocketsim==2.2.1
+sentry-sdk==2.68.1
+sympy==1.14.0
+torch==2.13.0+cpu
+typing-inspection==0.4.4
+typing_extensions==4.16.0
+urllib3==2.7.0
+wandb==0.29.0
+xxhash==4.0.1

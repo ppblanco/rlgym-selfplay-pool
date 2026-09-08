@@ -1,0 +1,23 @@
+{
+  "etiqueta": "D_A stage_1_basics zs=si",
+  "a": "D_A@000100000",
+  "b": "C0",
+  "hash_a": "44fe697f3a55ac979c6d76c0e3d5983f08eb858e3515572c5e58cb50d4be62a3",
+  "hash_b": "2144e0e0e1f1df75e4a1c1b9a2270bdc56a9e80a8a92277b2a45e4abdb028030",
+  "partidas": 200,
+  "victorias": 144,
+  "derrotas": 51,
+  "empates": 5,
+  "incompletas": 0,
+  "completas": 200,
+  "tasa": 0.72,
+  "ic95_wilson": [
+    0.6540769541172956,
+    0.7776311022728887
+  ],
+  "semillas": [
+    11000,
+    11199
+  ],
+  "lados": "alternados por indice"
+}

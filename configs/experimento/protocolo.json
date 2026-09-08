@@ -1,0 +1,219 @@
+{
+  "c0": {
+    "completo": true,
+    "cumulative_model_updates": 4,
+    "cumulative_timesteps": 32000,
+    "hashes": {
+      "BOOK_KEEPING_VARS.json": "56d05fb2a65050390318b495e4c838b32f3efe837da0667da67f849636ec7ee8",
+      "PPO_POLICY.pt": "2144e0e0e1f1df75e4a1c1b9a2270bdc56a9e80a8a92277b2a45e4abdb028030",
+      "PPO_POLICY_OPTIMIZER.pt": "3d232a21a483dd8dc7853de45fda693a19f283ce51de2778952fb4314f7d84ac",
+      "PPO_VALUE_NET.pt": "e97ffc3a3fac7be36ae2a9cc3a29c34c341cc84769dfd80af15312c25ef30a5b",
+      "PPO_VALUE_NET_OPTIMIZER.pt": "62ea1b0d0070a2fee18a085158947aebbdd62359c1f901825a22d6038b7cf22e"
+    },
+    "recompensa_con_la_que_se_entreno": "stage_1_basics",
+    "ruta": "%LOCALAPPDATA%\\rlgym-selfplay-pool\\runs\\C0_v2_stage1"
+  },
+  "codigo": {
+    "hashes_fuentes_nuestras": {
+      "scripts/check_adapter.py": "23071ed46cdace796cb0a9406c5210838233830f93c32b80d19fe04fd1822734",
+      "scripts/checks_sim.py": "e1dd04b3485836955b87a70ccb97ae77563624d6d1fca93c2a2d806ff27641c6",
+      "scripts/compare_rewards.py": "344ca48823dd62ef7ee42a3585926eb4f28b40709f7da7002cfecbeec12b8056",
+      "scripts/eval_dev.py": "c5743596bf37c1e097c1903af13eda9061620b57eecba5d78763a3a3b6f9a127",
+      "scripts/freeze_protocol.py": "9b6c3a419159d3326acfc8d5dda51ef671d6af388f260ad67913782fc220a535",
+      "scripts/preflight.py": "cfaf98826ad8d275de7b2980852e85d3da01be54ac9b3d2a4ff493365ce93f96",
+      "scripts/test_pool.py": "252a2d4e809c50f356e867226fc718643d31d929596b2cd81f651cc98f337195",
+      "scripts/train_ab_smoke.py": "68046d5b1c1239b3dd4307c7aac0217b734152974d55a867d5427db63cfb927b",
+      "scripts/train_smoke.py": "4f60a941fa3adef9782fb3befabc5390ff9dc4cf8a023b331bd5b9eb344e5629",
+      "scripts/warmup_critic.py": "dce602981f6750c33cc2df0cf5c9ef36e1d1bbfea9c00d99650945e1ee8c7c44",
+      "src/rlbot/env/frozen_opponent.py": "4e6129ee99d32efa96529fd9e467a7be0658f1c2a20574e6dd5a048a92e1a6b4",
+      "src/rlbot/env/opponent_pool.py": "3f3045db0a9787437152aa997ab36beb5b1220b66351357c9578b1aa0bab6b4b",
+      "src/rlbot/env/rocketsim_init.py": "9ab49402166b9096937f02cfae50ffc74b8dc8b39423f3cf07440454ebdd680a"
+    },
+    "nota": "el SHA de upstream identifica la BASE; los hashes de abajo identifican nuestras aportaciones",
+    "upstream_commit": "0c6965acf3d0405227282a80b1881dbfde3ef56b"
+  },
+  "congelado": "2026-09-07T20:46:53",
+  "criterio_H1": {
+    "evidencia_a_favor": [
+      "la diferencia B-A en tasa de victoria tiene IC bootstrap 95% que EXCLUYE el 0",
+      "la magnitud de la diferencia supera el rango entre semillas de ambos brazos",
+      "el signo es consistente en al menos 2 de 3 semillas",
+      "el signo es consistente en al menos 2 de 3 rivales"
+    ],
+    "evidencia_en_contra": "los mismos cuatro criterios con el signo invertido",
+    "inconcluyente": [
+      "el IC incluye el 0, o",
+      "la diferencia es menor que el rango entre semillas, o",
+      "el signo no es consistente entre semillas o entre rivales"
+    ],
+    "prohibido": [
+      "usar la recompensa de entrenamiento como prueba de calidad de juego",
+      "reducir H1 a 'B tiene un porcentaje mayor que A'",
+      "presentar como mejora robusta una diferencia menor que la variabilidad entre semillas"
+    ]
+  },
+  "dependencias": {
+    "lockfile": "requirements/lock-2026-09-07.txt",
+    "mallas": "rlgym-rocket-league 2.0.1, sdist sha256 3be8e9d2f1cfb6514e0e3d455fb33ff95e26eb7c399f819fff0258025cf4d501",
+    "numpy": "1.26.4",
+    "python": "3.11.16",
+    "rlgym-ppo": "4ffd2e924198bf4b2d59f4bf280b29919d7c07ea",
+    "rlgym-sim": "a1240530239d6b7671147b4f97e9b5e130d0acce",
+    "rlgym-tools": "NO instalado (su main es API v2, incompatible)",
+    "rocketsim": "2.2.1",
+    "torch": "2.13.0+cpu"
+  },
+  "deuda_tecnica": {
+    "torch_load_sin_weights_only": {
+      "donde": "rlgym_ppo/ppo/ppo_learner.py::load_from",
+      "reglas": [
+        "no usar esa ruta con checkpoints externos",
+        "no relajar la carga de artefactos ajenos (siempre weights_only=True)",
+        "no modificar rlgym-ppo en esta fase solo por esto"
+      ],
+      "riesgo": "bajo en este experimento: solo se le pasan checkpoints generados localmente por nosotros"
+    }
+  },
+  "ejecucion": {
+    "dispositivo": "cpu",
+    "hilos_torch_por_trabajador": 1,
+    "n_proc": 2,
+    "wandb": "desactivado"
+  },
+  "entorno": {
+    "spawn_opponents": true,
+    "state_setter": "DefaultState",
+    "team_size": 1,
+    "terminales": [
+      "GoalScoredCondition",
+      "TimeoutCondition(300 pasos)"
+    ],
+    "tick_skip": 8
+  },
+  "evaluacion_desarrollo": {
+    "para": "decisiones durante el desarrollo",
+    "prohibido": "no se usan los rivales finales para ninguna decision",
+    "rivales": [
+      "diego_1.18B_512 (artefacto de partida)",
+      "instantaneas propias"
+    ]
+  },
+  "evaluacion_final": {
+    "alternancia_de_lados": "indice par -> nuestro bot de azul; impar -> de naranja",
+    "checkpoint_evaluado": "el checkpoint FINAL de cada ejecucion",
+    "cuando": "una sola vez, con el protocolo ya congelado",
+    "incertidumbre": {
+      "entre_semillas": "media y rango de las 3 semillas por brazo",
+      "intervalo": "bootstrap 95% sobre las partidas, 10000 remuestreos"
+    },
+    "metricas": [
+      "tasa de victoria sobre completas",
+      "tasa de victoria sobre decisivas",
+      "desglose por rival"
+    ],
+    "modo_accion": "estocastico (unico modo primario; el determinista, si se ejecuta, se reporta por separado y nunca mezclado)",
+    "partidas_por_rival_y_ejecucion": 40,
+    "partidas_totales": 720,
+    "regla_de_seleccion": "ninguna: se evalua el final. No se elige el mejor checkpoint mirando ningun conjunto.",
+    "reglas": {
+      "empate": "se agota TimeoutCondition del entorno de evaluacion",
+      "incompleta": "cualquier otra terminacion o corte; se excluye de las tasas y se reporta aparte. Una partida incompleta NO es empate.",
+      "sin_desempate_administrativo": "no se resuelven empates por timesteps, siembra ni clasificacion",
+      "victoria_derrota": "gol marcado o encajado"
+    },
+    "rivales": [
+      {
+        "nombre": "martin_2.1B_1024",
+        "obs": 107,
+        "sha256_politica": "e959aca4cb171adac7922d00356112518221f94174465a4ac461aebaa484a2e8"
+      },
+      {
+        "nombre": "nachi_2.9B",
+        "obs": 107,
+        "sha256_politica": "94be42a4f24bf222bb2d400ebe473d4892e3b2a8733f4e2270eada1e8d0558a8"
+      },
+      {
+        "nombre": "marco_2.0B_1024",
+        "obs": 89,
+        "sha256_politica": "74f169281224b444de5d4a7be76be73b74c6aabd20710ef6a8b8819f7b66cb76"
+      }
+    ],
+    "semillas_de_partida": "5000..5039 por rival, lista fija"
+  },
+  "hipotesis": "H1 - un rival muestreado de instantaneas pasadas produce mayor tasa de victorias frente a rivales reservados que un rival que es siempre la version actual congelada, a igualdad de muestras.",
+  "modelo": {
+    "acciones": "LookupAction (90 discretas)",
+    "arquitectura_critico": [
+      512,
+      512,
+      512
+    ],
+    "arquitectura_politica": [
+      512,
+      512,
+      512
+    ],
+    "obs": "DefaultObs (89)"
+  },
+  "pool": {
+    "K_muestras_por_instantanea": 40000,
+    "brazo_A": {
+      "descripcion": "una sola instantanea, refrescada cada K",
+      "protegidas": [],
+      "retencion": 1
+    },
+    "brazo_B": {
+      "descripcion": "historicas hasta el maximo; C0 nunca se expulsa",
+      "protegidas": [
+        "C0"
+      ],
+      "retencion": 16
+    },
+    "muestreo": "uniforme entre elegibles, reproducible por (semilla, episodio)",
+    "regla_de_expulsion": "si se supera la retencion, se expulsa la mas antigua NO protegida; determinista, fijada antes del experimento"
+  },
+  "ppo": {
+    "clip_range": 0.2,
+    "ent_coef": 0.01,
+    "epochs": 1,
+    "gae_gamma": 0.99,
+    "gae_lambda": 0.95,
+    "minibatch": 8000,
+    "standardize_obs": false,
+    "standardize_returns": true
+  },
+  "presupuesto": {
+    "actualizaciones_esperadas": 62,
+    "ejecuciones": 6,
+    "instantaneas_esperadas": 12,
+    "lote_ppo": 8000,
+    "muestras_por_ejecucion": 500000,
+    "nota": "500k por ejecucion = 6 ejecuciones (3 semillas x 2 brazos)"
+  },
+  "recompensa": {
+    "archivo": "configs/reward_weights/stage_1_basics.yaml",
+    "componentes": [
+      "velocity_player_to_ball 0.10",
+      "face_ball 0.05",
+      "velocity_ball_to_goal 0.30",
+      "event 8.0 (goal 1, concede -1, shot 0.1, demo 0.1)"
+    ],
+    "envoltura": "ZeroSumReward(team_spirit=0.0, opp_scale=1.0)",
+    "heredada": true,
+    "sha256": "d508a6e4296ef37ffc9924ff847683b60e6944e94a462632c2238add5f05972f"
+  },
+  "semillas": {
+    "emparejadas": "A_i y B_i comparten semilla",
+    "entrenamiento": [
+      20260907,
+      20260908,
+      20260909
+    ],
+    "no_determinismo_restante": [
+      "orden de llegada de la experiencia de los trabajadores (asincrono)",
+      "reducciones en coma flotante de torch en CPU",
+      "planificacion del sistema operativo entre procesos"
+    ]
+  },
+  "version": "1.0"
+}

@@ -1,0 +1,23 @@
+{
+  "etiqueta": "R2 solo evento",
+  "a": "R2@000500000",
+  "b": "C0",
+  "hash_a": "ed317e811148c1cf54d4aef95921f5a4af7ad5ca3274744c4a6927500e830526",
+  "hash_b": "2144e0e0e1f1df75e4a1c1b9a2270bdc56a9e80a8a92277b2a45e4abdb028030",
+  "partidas": 200,
+  "victorias": 5,
+  "derrotas": 193,
+  "empates": 2,
+  "incompletas": 0,
+  "completas": 200,
+  "tasa": 0.025,
+  "ic95_wilson": [
+    0.01072471964974115,
+    0.057178340416906386
+  ],
+  "semillas": [
+    13000,
+    13199
+  ],
+  "lados": "alternados por indice"
+}

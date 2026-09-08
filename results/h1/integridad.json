@@ -1,0 +1,199 @@
+{
+  "protocolo_sha256": "8ae06382c83a85cae0bd5d68dc0f2d40b763e3dce9d5d81159393b45306f580e",
+  "filas": [
+    {
+      "corrida": "A1",
+      "brazo": "A",
+      "semilla": 20260907,
+      "protocolo_sha256": "8ae06382c83a85cae0bd5d68dc0f2d40b763e3dce9d5d81159393b45306f580e",
+      "muestras": 504000,
+      "actualizaciones": 63,
+      "segundos": 1256.58,
+      "muestras_por_segundo": 401.1,
+      "instantaneas": 1,
+      "hash_checkpoint_final": "18dba2b5d2ba05d3325ee8484939e1dfec35acb3f449975601045f819968c5cf",
+      "hash_coincide_con_informe": true,
+      "recuperacion_ok": true,
+      "recuperacion_detalle": {
+        "ok": true,
+        "obs_dim": 89,
+        "accion": 20
+      },
+      "completa": true,
+      "error": null,
+      "parametros_finitos": true,
+      "instantaneas_hash_ok": true,
+      "retencion_respetada": true,
+      "c0_intacto": true,
+      "hash_c0": "2144e0e0e1f1df75e4a1c1b9a2270bdc56a9e80a8a92277b2a45e4abdb028030",
+      "ts_inicial": 32000,
+      "presupuesto": 500000
+    },
+    {
+      "corrida": "B1",
+      "brazo": "B",
+      "semilla": 20260907,
+      "protocolo_sha256": "8ae06382c83a85cae0bd5d68dc0f2d40b763e3dce9d5d81159393b45306f580e",
+      "muestras": 504000,
+      "actualizaciones": 63,
+      "segundos": 912.3,
+      "muestras_por_segundo": 552.5,
+      "instantaneas": 13,
+      "hash_checkpoint_final": "21e6d8f631158a270258b2d546f0210ff6c44d6b0552d23901d2286e209e2c7c",
+      "hash_coincide_con_informe": true,
+      "recuperacion_ok": true,
+      "recuperacion_detalle": {
+        "ok": true,
+        "obs_dim": 89,
+        "accion": 20
+      },
+      "completa": true,
+      "error": null,
+      "parametros_finitos": true,
+      "instantaneas_hash_ok": true,
+      "retencion_respetada": true,
+      "c0_intacto": true,
+      "hash_c0": "2144e0e0e1f1df75e4a1c1b9a2270bdc56a9e80a8a92277b2a45e4abdb028030",
+      "ts_inicial": 32000,
+      "presupuesto": 500000
+    },
+    {
+      "corrida": "A2",
+      "brazo": "A",
+      "semilla": 20260908,
+      "protocolo_sha256": "8ae06382c83a85cae0bd5d68dc0f2d40b763e3dce9d5d81159393b45306f580e",
+      "muestras": 504000,
+      "actualizaciones": 63,
+      "segundos": 438.57,
+      "muestras_por_segundo": 1149.2,
+      "instantaneas": 1,
+      "hash_checkpoint_final": "6b762725f0df3fa3684cb889564f5e8f4c8a1bc767c28695b617af08ac168d39",
+      "hash_coincide_con_informe": true,
+      "recuperacion_ok": true,
+      "recuperacion_detalle": {
+        "ok": true,
+        "obs_dim": 89,
+        "accion": 20
+      },
+      "completa": true,
+      "error": null,
+      "parametros_finitos": true,
+      "instantaneas_hash_ok": true,
+      "retencion_respetada": true,
+      "c0_intacto": true,
+      "hash_c0": "2144e0e0e1f1df75e4a1c1b9a2270bdc56a9e80a8a92277b2a45e4abdb028030",
+      "ts_inicial": 32000,
+      "presupuesto": 500000
+    },
+    {
+      "corrida": "B2",
+      "brazo": "B",
+      "semilla": 20260908,
+      "protocolo_sha256": "8ae06382c83a85cae0bd5d68dc0f2d40b763e3dce9d5d81159393b45306f580e",
+      "muestras": 504000,
+      "actualizaciones": 63,
+      "segundos": 472.32,
+      "muestras_por_segundo": 1067.1,
+      "instantaneas": 13,
+      "hash_checkpoint_final": "69901f42bccd503cfab2cab86c79f72c046602c4f0996b4166369a85eda21195",
+      "hash_coincide_con_informe": true,
+      "recuperacion_ok": true,
+      "recuperacion_detalle": {
+        "ok": true,
+        "obs_dim": 89,
+        "accion": 20
+      },
+      "completa": true,
+      "error": null,
+      "parametros_finitos": true,
+      "instantaneas_hash_ok": true,
+      "retencion_respetada": true,
+      "c0_intacto": true,
+      "hash_c0": "2144e0e0e1f1df75e4a1c1b9a2270bdc56a9e80a8a92277b2a45e4abdb028030",
+      "ts_inicial": 32000,
+      "presupuesto": 500000
+    },
+    {
+      "corrida": "A3",
+      "brazo": "A",
+      "semilla": 20260909,
+      "protocolo_sha256": "8ae06382c83a85cae0bd5d68dc0f2d40b763e3dce9d5d81159393b45306f580e",
+      "muestras": 504000,
+      "actualizaciones": 63,
+      "segundos": 466.77,
+      "muestras_por_segundo": 1079.8,
+      "instantaneas": 1,
+      "hash_checkpoint_final": "41f79cf67b63901bbbdcb8d0055a6f8f8b3b8a8f37b025be377fdfe72cf6cbb9",
+      "hash_coincide_con_informe": true,
+      "recuperacion_ok": true,
+      "recuperacion_detalle": {
+        "ok": true,
+        "obs_dim": 89,
+        "accion": 20
+      },
+      "completa": true,
+      "error": null,
+      "parametros_finitos": true,
+      "instantaneas_hash_ok": true,
+      "retencion_respetada": true,
+      "c0_intacto": true,
+      "hash_c0": "2144e0e0e1f1df75e4a1c1b9a2270bdc56a9e80a8a92277b2a45e4abdb028030",
+      "ts_inicial": 32000,
+      "presupuesto": 500000
+    },
+    {
+      "corrida": "B3",
+      "brazo": "B",
+      "semilla": 20260909,
+      "protocolo_sha256": "8ae06382c83a85cae0bd5d68dc0f2d40b763e3dce9d5d81159393b45306f580e",
+      "muestras": 504000,
+      "actualizaciones": 63,
+      "segundos": 404.2,
+      "muestras_por_segundo": 1246.9,
+      "instantaneas": 13,
+      "hash_checkpoint_final": "6b6350d1e571eb6bf9ea80137829f73ef955fd88de6bf9584e0f4ec5ce5e5f6e",
+      "hash_coincide_con_informe": true,
+      "recuperacion_ok": true,
+      "recuperacion_detalle": {
+        "ok": true,
+        "obs_dim": 89,
+        "accion": 20
+      },
+      "completa": true,
+      "error": null,
+      "parametros_finitos": true,
+      "instantaneas_hash_ok": true,
+      "retencion_respetada": true,
+      "c0_intacto": true,
+      "hash_c0": "2144e0e0e1f1df75e4a1c1b9a2270bdc56a9e80a8a92277b2a45e4abdb028030",
+      "ts_inicial": 32000,
+      "presupuesto": 500000
+    }
+  ],
+  "cruzadas": {
+    "n_corridas": 6,
+    "semillas_emparejadas": {
+      "20260907": [
+        "A",
+        "B"
+      ],
+      "20260908": [
+        "A",
+        "B"
+      ],
+      "20260909": [
+        "A",
+        "B"
+      ]
+    },
+    "c0_unico": true,
+    "ts_inicial_unico": true,
+    "mismo_presupuesto_gastado": true,
+    "muestras_por_corrida": [
+      504000
+    ],
+    "checkpoints_finales_distintos": true
+  },
+  "problemas": [],
+  "integridad_superada": true
+}

@@ -1,0 +1,226 @@
+{
+  "protocolo_sha256": "8ae06382c83a85cae0bd5d68dc0f2d40b763e3dce9d5d81159393b45306f580e",
+  "convencion": "diferencia = B - A, sobre tasa de victoria en partidas completas",
+  "totales": {
+    "partidas": 720,
+    "victorias": 33,
+    "derrotas": 687,
+    "empates": 0,
+    "incompletas": 0,
+    "completas": 720,
+    "decisivas": 720,
+    "tasa_completas": 0.04583333333333333,
+    "tasa_decisivas": 0.04583333333333333
+  },
+  "totales_cuadran": true,
+  "por_brazo": {
+    "A": {
+      "partidas": 360,
+      "victorias": 18,
+      "derrotas": 342,
+      "empates": 0,
+      "incompletas": 0,
+      "completas": 360,
+      "decisivas": 360,
+      "tasa_completas": 0.05,
+      "tasa_decisivas": 0.05
+    },
+    "B": {
+      "partidas": 360,
+      "victorias": 15,
+      "derrotas": 345,
+      "empates": 0,
+      "incompletas": 0,
+      "completas": 360,
+      "decisivas": 360,
+      "tasa_completas": 0.041666666666666664,
+      "tasa_decisivas": 0.041666666666666664
+    }
+  },
+  "por_rival": {
+    "marco_2.0B_1024": {
+      "A": {
+        "partidas": 120,
+        "victorias": 10,
+        "derrotas": 110,
+        "empates": 0,
+        "incompletas": 0,
+        "completas": 120,
+        "decisivas": 120,
+        "tasa_completas": 0.08333333333333333,
+        "tasa_decisivas": 0.08333333333333333
+      },
+      "B": {
+        "partidas": 120,
+        "victorias": 4,
+        "derrotas": 116,
+        "empates": 0,
+        "incompletas": 0,
+        "completas": 120,
+        "decisivas": 120,
+        "tasa_completas": 0.03333333333333333,
+        "tasa_decisivas": 0.03333333333333333
+      }
+    },
+    "martin_2.1B_1024": {
+      "A": {
+        "partidas": 120,
+        "victorias": 4,
+        "derrotas": 116,
+        "empates": 0,
+        "incompletas": 0,
+        "completas": 120,
+        "decisivas": 120,
+        "tasa_completas": 0.03333333333333333,
+        "tasa_decisivas": 0.03333333333333333
+      },
+      "B": {
+        "partidas": 120,
+        "victorias": 9,
+        "derrotas": 111,
+        "empates": 0,
+        "incompletas": 0,
+        "completas": 120,
+        "decisivas": 120,
+        "tasa_completas": 0.075,
+        "tasa_decisivas": 0.075
+      }
+    },
+    "nachi_2.9B": {
+      "A": {
+        "partidas": 120,
+        "victorias": 4,
+        "derrotas": 116,
+        "empates": 0,
+        "incompletas": 0,
+        "completas": 120,
+        "decisivas": 120,
+        "tasa_completas": 0.03333333333333333,
+        "tasa_decisivas": 0.03333333333333333
+      },
+      "B": {
+        "partidas": 120,
+        "victorias": 2,
+        "derrotas": 118,
+        "empates": 0,
+        "incompletas": 0,
+        "completas": 120,
+        "decisivas": 120,
+        "tasa_completas": 0.016666666666666666,
+        "tasa_decisivas": 0.016666666666666666
+      }
+    }
+  },
+  "por_semilla": {
+    "20260907": {
+      "A": {
+        "partidas": 120,
+        "victorias": 5,
+        "derrotas": 115,
+        "empates": 0,
+        "incompletas": 0,
+        "completas": 120,
+        "decisivas": 120,
+        "tasa_completas": 0.041666666666666664,
+        "tasa_decisivas": 0.041666666666666664
+      },
+      "B": {
+        "partidas": 120,
+        "victorias": 4,
+        "derrotas": 116,
+        "empates": 0,
+        "incompletas": 0,
+        "completas": 120,
+        "decisivas": 120,
+        "tasa_completas": 0.03333333333333333,
+        "tasa_decisivas": 0.03333333333333333
+      }
+    },
+    "20260908": {
+      "A": {
+        "partidas": 120,
+        "victorias": 5,
+        "derrotas": 115,
+        "empates": 0,
+        "incompletas": 0,
+        "completas": 120,
+        "decisivas": 120,
+        "tasa_completas": 0.041666666666666664,
+        "tasa_decisivas": 0.041666666666666664
+      },
+      "B": {
+        "partidas": 120,
+        "victorias": 6,
+        "derrotas": 114,
+        "empates": 0,
+        "incompletas": 0,
+        "completas": 120,
+        "decisivas": 120,
+        "tasa_completas": 0.05,
+        "tasa_decisivas": 0.05
+      }
+    },
+    "20260909": {
+      "A": {
+        "partidas": 120,
+        "victorias": 8,
+        "derrotas": 112,
+        "empates": 0,
+        "incompletas": 0,
+        "completas": 120,
+        "decisivas": 120,
+        "tasa_completas": 0.06666666666666667,
+        "tasa_decisivas": 0.06666666666666667
+      },
+      "B": {
+        "partidas": 120,
+        "victorias": 5,
+        "derrotas": 115,
+        "empates": 0,
+        "incompletas": 0,
+        "completas": 120,
+        "decisivas": 120,
+        "tasa_completas": 0.041666666666666664,
+        "tasa_decisivas": 0.041666666666666664
+      }
+    }
+  },
+  "bootstrap_global": {
+    "dif": -0.008333333333333338,
+    "ic95": [
+      -0.03888888888888889,
+      0.022222222222222223
+    ],
+    "excluye_cero": false,
+    "n_bootstrap": 10000
+  },
+  "rango_entre_semillas": {
+    "A": 0.025,
+    "B": 0.01666666666666667
+  },
+  "rango_entre_semillas_max": 0.025,
+  "criterios": {
+    "1_ic_excluye_cero": false,
+    "2_magnitud_supera_rango_semillas": false,
+    "3_signo_consistente_semillas": {
+      "cumple": true,
+      "coincidentes": 2,
+      "signos": [
+        -1,
+        1,
+        -1
+      ]
+    },
+    "4_signo_consistente_rivales": {
+      "cumple": true,
+      "coincidentes": 2,
+      "signos": [
+        -1,
+        1,
+        -1
+      ]
+    }
+  },
+  "veredicto_H1": "INCONCLUYENTE",
+  "nota": "Las metricas de entrenamiento no se usan como prueba de calidad de juego."
+}

@@ -1,0 +1,123 @@
+{
+  "fase": "Diagnostico de recompensa. Escrito ANTES de entrenar.",
+  "pregunta": "Existe alguna configuracion de recompensa bajo la cual entrenar mejore la tasa de victoria contra C0?",
+  "motivo": "La puerta de H2 quedo en NO-GO y, ademas, los cinco linajes entrenados hasta ahora pierden contra su propio punto de partida. Antes de gastar mas computo hay que comprobar que el objetivo produce mejora.",
+  "no_es_h1_ni_h2": true,
+  "h1_cerrado": "INCONCLUYENTE, protocolo 8ae06382c83a85cae0bd5d68dc0f2d40b763e3dce9d5d81159393b45306f580e",
+  "h2_estado": "NO-GO. No se congela ningun protocolo H2 en esta fase.",
+
+  "c0": {
+    "ruta": "%LOCALAPPDATA%\\rlgym-selfplay-pool\\runs\\C0_v2_stage1",
+    "cumulative_timesteps": 32000,
+    "hashes": {
+      "BOOK_KEEPING_VARS.json": "56d05fb2a65050390318b495e4c838b32f3efe837da0667da67f849636ec7ee8",
+      "PPO_POLICY.pt": "2144e0e0e1f1df75e4a1c1b9a2270bdc56a9e80a8a92277b2a45e4abdb028030",
+      "PPO_POLICY_OPTIMIZER.pt": "3d232a21a483dd8dc7853de45fda693a19f283ce51de2778952fb4314f7d84ac",
+      "PPO_VALUE_NET.pt": "e97ffc3a3fac7be36ae2a9cc3a29c34c341cc84769dfd80af15312c25ef30a5b",
+      "PPO_VALUE_NET_OPTIMIZER.pt": "62ea1b0d0070a2fee18a085158947aebbdd62359c1f901825a22d6038b7cf22e"
+    }
+  },
+
+  "identico_en_las_tres": {
+    "c0_inicial": "el mismo",
+    "arquitectura_politica": [512, 512, 512],
+    "arquitectura_critico": [512, 512, 512],
+    "semilla_entrenamiento": 20260951,
+    "entorno": {
+      "tick_skip": 8, "team_size": 1, "spawn_opponents": true,
+      "state_setter": "DefaultState", "obs": "DefaultObs (89)",
+      "acciones": "LookupAction (90 discretas)",
+      "terminales": ["GoalScoredCondition", "TimeoutCondition(300 pasos)"]
+    },
+    "ejecucion": {"n_proc": 2, "hilos_torch_por_trabajador": 1, "lote_ppo": 8000, "dispositivo": "cpu"},
+    "ppo": {
+      "clip_range": 0.2, "ent_coef": 0.01, "epochs": 1, "gae_gamma": 0.99,
+      "gae_lambda": 0.95, "minibatch": 8000, "standardize_obs": false,
+      "standardize_returns": true
+    },
+    "presupuesto": 500000,
+    "rival_de_entrenamiento": "C0 congelado y fijo durante toda la corrida",
+    "hitos": [100000, 250000, 500000]
+  },
+
+  "configuraciones": {
+    "D_A": {
+      "id": "D_A",
+      "etiqueta": "A. stage_1_basics (referencia negativa conocida)",
+      "recompensa": "configs/reward_weights/stage_1_basics.yaml",
+      "heredada": true,
+      "zero_sum": true,
+      "papel": "referencia. Es la recompensa de H1 y del piloto de H2, que ya sabemos que pierde contra C0."
+    },
+    "D_B": {
+      "id": "D_B",
+      "etiqueta": "B. stage_2_offense (mas senal de gol, heredada)",
+      "recompensa": "configs/reward_weights/stage_2_offense.yaml",
+      "heredada": true,
+      "zero_sum": true,
+      "papel": "variante heredada con el peso desplazado hacia marcar: event 12.0 frente a 8.0, velocity_ball_to_goal 0.6 frente a 0.30, y anade save 0.3."
+    },
+    "D_C": {
+      "id": "D_C",
+      "etiqueta": "C. stage_2_offense SIN ZeroSumReward",
+      "recompensa": "configs/experimento/reward-diagnostic/stage_2_offense_nozs.yaml",
+      "heredada": "componentes y pesos heredados sin cambios; solo se desactiva la envoltura",
+      "zero_sum": false,
+      "papel": "aisla ZeroSumReward. Difiere de D_B en EXACTAMENTE una clave, verificado comparando los YAML."
+    }
+  },
+
+  "evaluacion": {
+    "rival": "C0",
+    "herramienta": "scripts/h2/duel.py",
+    "partidas_por_checkpoint": 200,
+    "semillas_partida": {"desde": 11000, "hasta": 11199},
+    "lados": "alternados por indice: 100 azul y 100 naranja",
+    "modo": "estocastico",
+    "tope_pasos": 3000,
+    "checkpoints_evaluados": [100000, 250000, 500000],
+    "total_partidas": 1800,
+    "semillas_no_reutilizadas": {
+      "h1_final": "5000-5039", "h2_calibracion": "9000-9039", "h2_final_previsto": "7000-7059"
+    },
+    "rivales_prohibidos": ["martin_2.1B_1024", "nachi_2.9B", "marco_2.0B_1024",
+                           "escalones S@* previstos como rivales finales de H2"]
+  },
+
+  "variable_primaria": "tasa de victoria contra C0 sobre partidas completas",
+  "metricas_solo_diagnosticas": [
+    "recompensa acumulada", "vf_loss", "KL", "entropia",
+    "NO se usan como prueba de calidad de juego; solo para juzgar estabilidad"
+  ],
+
+  "criterio_de_exito": {
+    "escrito_antes_de_entrenar": true,
+    "PROMETEDORA": [
+      "1. el checkpoint de 500k supera el 50% contra C0 en estimacion puntual",
+      "2. Y el intervalo de confianza Wilson 95% de esa tasa EXCLUYE el 50%",
+      "3. Y no hay deterioro sistematico: tasa(500k) >= tasa(100k) - 10 puntos porcentuales",
+      "4. Y es estable: parametros finitos, sin NaN en vf_loss, y entropia final > 1.0"
+    ],
+    "INCONCLUYENTE": "la estimacion puntual de 500k supera el 50% pero el IC incluye el 50%, o la estabilidad no puede juzgarse",
+    "NO_PROMETEDORA": "la estimacion puntual de 500k no supera el 50%, o hay deterioro sistematico, o hay colapso",
+    "como_se_distingue_tendencia_de_ruido": {
+      "nota": "Con 200 partidas y tasa cercana al 50%, el error tipico de una tasa es 3.5 puntos y el de una diferencia entre dos checkpoints es 5.0 puntos.",
+      "deterioro_sistematico": "tasa(500k) < tasa(100k) - 10 pp, es decir mas de 2 errores tipicos de la diferencia",
+      "no_se_exige_monotonicidad": "una bajada intermedia menor de 10 pp se considera fluctuacion y no invalida la tendencia"
+    }
+  },
+
+  "analisis_zero_sum": {
+    "contraste": "D_B frente a D_C, que difieren en exactamente una clave",
+    "se_comparara": ["senal (magnitud y varianza de la recompensa)", "estabilidad (vf_loss, entropia)",
+                     "direccion del cambio (deriva desde C0)", "tasa contra C0"],
+    "advertencia": "No se concluira causalidad solo porque una variante gane mas. Con una sola semilla por configuracion, si el efecto no puede aislarse se dira explicitamente."
+  },
+
+  "limites_declarados": {
+    "una_sola_semilla_por_configuracion": "no permite separar el efecto de la recompensa del de la semilla",
+    "presupuesto_pequeno": "500.000 muestras: es un cribado, no una medicion fina",
+    "no_se_ampliara_el_presupuesto_en_esta_fase": true,
+    "no_se_probaran_mas_de_tres_configuraciones": true
+  }
+}
