@@ -34,6 +34,9 @@ e3ea6962db1be92e13a2073419e37973f58c7148c28a86056a2726ac08765d29       343  conf
 c13de130541695ff9f0a362de8ce1ccae6b8fab901079fdd0875ebf2ca71737c       571  configs/experiments/exp_003_long_run.yaml
 d508a6e4296ef37ffc9924ff847683b60e6944e94a462632c2238add5f05972f       468  configs/reward_weights/stage_1_basics.yaml
 b830e49a22f6994f403bd606beb8e8b2a11fb77e85b1201d446f281e8e7281c8       426  configs/reward_weights/stage_2_offense.yaml
+ae664afe64f6acf407e31910f112577b216f2bd9c885666dafe0ef6e5becec02   1246070  deliverables/RLGym_SelfPlay_Portfolio_Presentation.pdf
+db186ddb6cd02f32f4bc7604864353ef0b5da7e9982145f952bc526d8cb59f06   1037411  deliverables/RLGym_SelfPlay_Portfolio_Presentation.pptx
+9eb3086658af2c454cdcd2df79d73acf511393c0104bc582bb89b002fcf1c249    936415  deliverables/RLGym_SelfPlay_Project_Report.pdf
 630ebfbf43fb6eed74c8c75bc7ebe6c0ab22f2682df043f62e7a90ce6373d9a8      9390  docs/CONTRIBUTIONS.md
 327efaa8bbd9dcdff158724aae1e8a34648ab4f5df1efa9605407e2d7e596a07     21208  docs/experiments/h2/diseno-h2.md
 004a41ecea6948f525521473485ea296ec543d785534a4b52345af349f3ce6a1      9214  docs/experiments/h2/puerta-go-no-go.md
@@ -66,7 +69,7 @@ d4c27ffdbd90484d7343cb3ccd8ecdf89b8f42d2affd30ba664849cad1491b26      6429  docs
 81ccd00cf8bbaafa3403b047deb7afcb7b62f8f9ba7cffe0e30e9ebdf7229462      1083  LICENSE
 a080d3b973685bdbd74df10e9c0498e7b6b8b4b7d43a30c3cd1cf92afbe42dc6      4996  NOTICE
 d0314b8d58508e78d9ed527cc334511a1e466d10a827436368131cc6e7e66133      1792  pyproject.toml
-f9114f6146faa60a43147b9b609331ca4891d6927695a91a9f06bc6bde510da3      8305  README.md
+25d81c8197fcdc33084d7ffedaf33b518902c85be279ecdde835c9b6c546f7c8      8651  README.md
 5c8ae26c2ffd6a772adb7e9858a3c4c3415e472903d8e13a66e0462601a6cf9c      1417  requirements/lock-2026-09-07.txt
 687598f954212b5849429bd5326cdfcc38bb9a56b0cd0c895332b2f5bb2a9a5c       961  requirements.txt
 d3de55bbd04938c1643e33a0b71dea0fd91f0561ef1b07be3d1e2cfeb1d8cc1a      5664  results/h1/analisis-h1.json

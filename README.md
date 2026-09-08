@@ -62,6 +62,10 @@ que el control fuera mejor.
 > 📖 **[Read the full experimental story →](docs/PROJECT_STORY.md)**
 > El proyecto entero contado desde cero, con las seis figuras: qué intentaba
 > averiguar, qué construí, qué salió mal y por qué cerré la investigación.
+>
+> **[Read the full report (PDF)](deliverables/RLGym_SelfPlay_Project_Report.pdf)** ·
+> **[View presentation (PDF)](deliverables/RLGym_SelfPlay_Portfolio_Presentation.pdf)** ·
+> **[Download presentation (PPTX)](deliverables/RLGym_SelfPlay_Portfolio_Presentation.pptx)**
 
 ### Lo que vino después
 
@@ -119,6 +123,7 @@ docs/REPRODUCE.md       cómo reproducirlo
 docs/figures/           las seis figuras, generadas desde results/
 docs/experiments/       H1, H2, diagnósticos, incidencias
 docs/upstream/          README y documentación originales, intactos
+deliverables/           informe en PDF y presentación (PDF y PPTX)
 results/                JSONL de partidas, análisis e informes (sin pesos)
 tests/                  pruebas heredadas
 ESTADO_PROYECTO.md      diario cronológico
