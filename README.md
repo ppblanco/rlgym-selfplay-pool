@@ -59,6 +59,10 @@ La diferencia está dentro de la incertidumbre: cambiar la semilla mueve el
 resultado más que cambiar el método. **No** significa que el pool sea peor, ni
 que el control fuera mejor.
 
+> 📖 **[Read the full experimental story →](docs/PROJECT_STORY.md)**
+> El proyecto entero contado desde cero, con las seis figuras: qué intentaba
+> averiguar, qué construí, qué salió mal y por qué cerré la investigación.
+
 ### Lo que vino después
 
 1. **Diagnóstico:** efecto suelo frente a rivales miles de veces más entrenados,
@@ -108,9 +112,11 @@ scripts/                21 herramientas propias + 5 heredadas
 scripts/h2/             infraestructura aislada por proceso, duelos, puerta
 configs/experimento/    tres protocolos congelados con su SHA256
 configs/reward_weights/ recompensas heredadas, sin modificar
+docs/PROJECT_STORY.md   la historia completa, con figuras  ← empieza aquí
 docs/FINAL_REPORT.md    informe técnico completo
 docs/CONTRIBUTIONS.md   qué es heredado y qué es nuestro
 docs/REPRODUCE.md       cómo reproducirlo
+docs/figures/           las seis figuras, generadas desde results/
 docs/experiments/       H1, H2, diagnósticos, incidencias
 docs/upstream/          README y documentación originales, intactos
 results/                JSONL de partidas, análisis e informes (sin pesos)

@@ -42,7 +42,20 @@ b830e49a22f6994f403bd606beb8e8b2a11fb77e85b1201d446f281e8e7281c8       426  conf
 35aea8ebded14a215196159325f1845d97c7398f22c00b5e43629885989fccf4     11234  docs/experiments/resultados-finales.md
 435963325752c914e9265692786545fc6a09e44b03de484cab037a749bc0b006      9663  docs/experiments/reward-diagnostic/analisis.md
 9ca9e2d098eb683ed57c5bae0f60555c36cbae90ca650a5bb259f0c652bd72fb      7953  docs/experiments/reward-final-check/analisis.md
+a69d4a3c253b6b833e168b75d91567705afcca2da5ca537f40b68dc08f38367b    160645  docs/figures/01_h1_resultado.png
+08e9f9c35dbd4bfd0b608e2830d3f1cd141f3b7a648d47fcb45c8c1960413f52      8762  docs/figures/01_h1_resultado.svg
+b1658d0a23d197a0eb5ffafa6958b305e4d77294bdcbba4efe8dd6a05fe604da    279151  docs/figures/02_arquitectura.png
+cd224849f4f98ca7968859aa7563865b6b146cdc8eed88a3a9d30b6ad609f625      9811  docs/figures/02_arquitectura.svg
+f897350491d0b0f8fc6c55a68579ec7a0ce6edda44de37ea65eeb5829a607ccb    137780  docs/figures/03_opponent_pool.png
+f8d172c62b3841f5d77663d63ead4b20feb025de7713353aa412c0c3b97cdfc4      6508  docs/figures/03_opponent_pool.svg
+bc78b85a2992f4d16bf71841270ec571188e51c3e4f663a6ae79e9144224c0a3    176766  docs/figures/04_falsacion.png
+976b97a924ee22e81d2064a204e92113fc0535bd30e96016bf136130c766ac40      7446  docs/figures/04_falsacion.svg
+a93d2a189aeca37d33c0668fd57a9abfd71ba81d6099d3674f661c46b46b5f67    189108  docs/figures/05_diagnostico_recompensas.png
+5362955ed72eb55d7d168151acc7f5798b07204cb6f8ee189f7a6096236ff8ff      7083  docs/figures/05_diagnostico_recompensas.svg
+6e251372570b5c862102ee713db2cc2f5659f032042135bc51b4725097c7a4d1    179247  docs/figures/06_puerta_h2.png
+d4c27ffdbd90484d7343cb3ccd8ecdf89b8f42d2affd30ba664849cad1491b26      6429  docs/figures/06_puerta_h2.svg
 0f6c5c944b8830dd4f42aa0951c65288a2da480bf6c8a144725cdf2edb6d4f6c     22531  docs/FINAL_REPORT.md
+4fb34c31bcf3d19606424ec2b3be2545c7ac2b71a11caf3377dba04aa0381e33     32728  docs/PROJECT_STORY.md
 89c7e2d5e1017be0bf58dd45a70e8ed2a70880aff4a7452f6e109b0173a68163      6272  docs/REPRODUCE.md
 48c057f31589e55f1de77a8ebd8a2f57194f9f77a46ea27fc99629650a8bb35b      3895  docs/upstream/architecture.md
 5c95f466f02b1d41b0c4270a787a033d043ea91d723096ff021693aa3e9a6587      8272  docs/upstream/README-original.md
@@ -53,7 +66,7 @@ b830e49a22f6994f403bd606beb8e8b2a11fb77e85b1201d446f281e8e7281c8       426  conf
 81ccd00cf8bbaafa3403b047deb7afcb7b62f8f9ba7cffe0e30e9ebdf7229462      1083  LICENSE
 a080d3b973685bdbd74df10e9c0498e7b6b8b4b7d43a30c3cd1cf92afbe42dc6      4996  NOTICE
 d0314b8d58508e78d9ed527cc334511a1e466d10a827436368131cc6e7e66133      1792  pyproject.toml
-bd7202a7aab591ee5131238407ce54a33560646505da582cef574b6e5c338439      7921  README.md
+f9114f6146faa60a43147b9b609331ca4891d6927695a91a9f06bc6bde510da3      8305  README.md
 5c8ae26c2ffd6a772adb7e9858a3c4c3415e472903d8e13a66e0462601a6cf9c      1417  requirements/lock-2026-09-07.txt
 687598f954212b5849429bd5326cdfcc38bb9a56b0cd0c895332b2f5bb2a9a5c       961  requirements.txt
 d3de55bbd04938c1643e33a0b71dea0fd91f0561ef1b07be3d1e2cfeb1d8cc1a      5664  results/h1/analisis-h1.json
@@ -98,6 +111,7 @@ e1dd04b3485836955b87a70ccb97ae77563624d6d1fca93c2a2d806ff27641c6     11325  scri
 344ca48823dd62ef7ee42a3585926eb4f28b40709f7da7002cfecbeec12b8056      8715  scripts/compare_rewards.py
 c5743596bf37c1e097c1903af13eda9061620b57eecba5d78763a3a3b6f9a127      9535  scripts/eval_dev.py
 f07ffb0e9394d7664ea3bdcec5b2fe8d6a88e6930bf7ac53b7b9590c04079f40      9829  scripts/eval_final.py
+12e94a355e24587d345212cc3ea4a95ba56ba00342118742da795282e7011e03     24195  scripts/figures/make_figures.py
 af3653f80100b31c567619193b95a94b25d17968c26f53279cb6f8e55f99a5a1     11675  scripts/freeze_protocol.py
 4c2341a252fcb8107ddb115739ee2730c6640ff6825cbaeb22bee690481bef63      5951  scripts/h2/driver_h2.py
 f69b431cdcf02bf374309e33fcc79fcfd23a0d0575ff3dcb3cdf5f16f8ab3f98      6466  scripts/h2/duel.py
